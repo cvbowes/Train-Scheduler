@@ -57,8 +57,17 @@ $(document).ready(function () {
   	var startInput = $("#start-time-input").val().trim();
   	var frequencyInput = $("#frequency-input").val().trim();
 
-  	if (nameInput != "" && destinationInput != "" && startInput != "" && frequencyInput != "") {
-	  	database.push({
+  	//regex to check time input
+  	var p = /([01]?[0-9]|2[0-3]):[0-5][0-9]/;
+
+  	if (nameInput === "" || destinationInput === "" || startInput === "" || frequencyInput === "") {
+  		alert("Please enter all train info");
+  		
+  	} else if (!p.test(startInput)) {
+  		alert("please enter a valid time");
+
+  	} else {
+  		database.push({
 	  		name: nameInput,
 	  		destination: destinationInput,
 	  		start: startInput,
@@ -66,13 +75,11 @@ $(document).ready(function () {
 	  		dateAdded: firebase.database.ServerValue.TIMESTAMP
 	  	});
 
-	  	 $("#name-input").val("");
-	  	 $("#destination-input").val("");
-	  	 $("#start-time-input").val("");
-	  	 $("#frequency-input").val("");
-
-  	} else {
-  		alert("Please enter all train info");
+  		//empty input boxes
+	  	$("#name-input").val("");
+	  	$("#destination-input").val("");
+	  	$("#start-time-input").val("");
+	  	$("#frequency-input").val("");
   	}
 
   });
