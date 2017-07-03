@@ -130,9 +130,4 @@ $(document).ready(function () {
   	console.log("Errors handled: " + err.code);
   });
 
-  $("#clear-schedule").on("click", function(event) {
-  	database.set({});
-  	location.reload();
-  })
-
 })
