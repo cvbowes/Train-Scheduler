@@ -134,7 +134,7 @@ $(document).ready(function () {
   });
 
   for (var i=0; i<initialData.length; i++) {
-    addRow(initialData[i], null);
+    addRow(initialData[i], "");
   }
  
 })
