@@ -35,7 +35,7 @@ $(document).ready(function () {
   	newRow.append("<td>" + snapshotObj.frequency + "</td>");
   	newRow.append("<td>" + nextTrainTime(minsAway) + "</td>");
   	newRow.append("<td>" + minsAway + "</td>");
-  	newRow.append("<td> <span class='delete'> x </span></td>");
+  	newRow.append("<td> <span class='glyphicon glyphicon-trash'></span></td>");
 
   	$("#schedule-body").append(newRow);
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
   	$("#train-form").animate({backgroundColor: "rgb( 255, 255, 255)"});
   }
 
-  $(document).on("click", ".delete", function () {
+  $(document).on("click", ".glyphicon-trash", function () {
  	var parent = $(this).parents("tr");
   	firebase.database().ref(parent.attr("id")).remove(); //removes node with given ID from firebase
 	
