@@ -6,6 +6,8 @@
 body {
 	background-color: #afaf90;
 	background: url("../images/bg.jpg") center center fixed;
+	color: #000;
+	font-family:  'Lato', sans-serif;
 }
 
 .container-fluid {
@@ -16,22 +18,45 @@ body {
 	color: #fff;
 	padding: 40px;
 	margin: 0 10px 10px 10px;
-	background: rgba(130,125,107, 0.7)
+	background: rgba(130,125,107, 0.7);
 }
 
-#units-select {
-	width: 100%;
-	height: 20px;
+h1 {
+	font-family: 'Kreon', sans-serif;
+	font-weight:700;
+	font-size: 44pt;
+	letter-spacing: 5px;
+}
+
+h4 {
+	font-size: 12pt;
+	color: #c6c6b1;
 }
 
 #input-section, #schedule-section {
-	padding: 10px;
+	padding: 15px;
 	margin: 10px;
-	background: rgba(255,255,255,0.7);
+	background: rgba(255,255,255,0.8);
+	border-radius: 5px;
 }
 
-#train-form {
-	padding: 10px;
+#schedule-section {
+
+	overflow-x: scroll;
+	padding-bottom: 0px;
+}
+
+.label-default {
+	background: rgba(99,99,79,0.5);
+	border-radius: 3px 3px 0 0;
+	font-family: 'Kreon', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	margin-left: 3px;
+}
+
+input {
+	margin-top: 2px;
 }
 
 #text-sub-col {
@@ -43,9 +68,78 @@ body {
 	padding-top: 5px;
 }
 
+#units-select {
+	width: 100%;
+}
+
+#error, #time-error {
+	padding: 10px;
+	color: #a83e37;
+}
+
+button {
+	height: 40px;
+	padding: 10px;
+	border: none;
+	background-color: #afaf90;
+	color: #fff;
+	font-family: 'Kreon', sans-serif;
+	font-weight: 400;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+button:hover {
+	color: #fff;
+	background-color: #63634f;
+	box-shadow: 0px 0px 5px 1px #444436 inset;
+}
+
+#schedule-head {
+	background: #63634f;
+}
+
+table th:first-child {
+	border-top-left-radius: 5px;
+}
+
+table th:last-child {
+	border-top-right-radius: 5px;
+}
+
+table tr:last-child td:first-child {
+	border-bottom-left-radius:5px;
+}
+
+table tr:last-child td:last-child {
+	border-bottom-right-radius: 5px;
+}
+
+th {
+	font-weight: 400;
+	color: #fff;
+	font-family: 'Kreon', sans-serif;
+}
+
+.table> tbody > tr:nth-child(2n+1) > td{
+   background:rgba(198, 198, 177, 0.5);
+}
+
+.table > tbody > tr:nth-child(2n) > td{
+   background:rgba(255, 255, 255, 0.5);
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background: #afaf90;
+}
+
 @media screen and (max-width: 768px) {
 #input-section, #schedule-section {
 	margin: 10px 0;
 	width: 100%;
+}
+
+#schedule-section {
+	margin-bottom: 50px;
 }
 }

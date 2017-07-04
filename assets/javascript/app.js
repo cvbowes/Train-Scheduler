@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+  //these will always display and cannot be deleted by user
+  var initialData = [{name: "Golden Eagle", destination: "Siberia", start: "8:00", frequency: 720},
+    {name: "Airport Express", destination: "RDU", start: "00:00", frequency: 10}, 
+    {name: "Belmont Grand Hibernian", destination: "Dublin", start: "12:00", frequency: 10080 }]
   
   var config = {
     apiKey: "AIzaSyDYcEPj_1z1nqQncN_yu2-ejj4MFAfVk5s",
@@ -27,8 +32,6 @@ $(document).ready(function () {
   	var newRow = $("<tr>").attr("id", key);
 
   	var minsAway = calculateMinsAway(snapshotObj.start, snapshotObj.frequency);
-  	console.log(minsAway);
-  	console.log("next train: " + nextTrainTime(minsAway));
 
   	newRow.append("<td>" + snapshotObj.name + "</td>");
   	newRow.append("<td>" + snapshotObj.destination + "</td>");
@@ -63,8 +66,8 @@ $(document).ready(function () {
 
   //alert user of input error
   function errorAnimate() {
-  	$("#train-form").css("background-color", "#bc7974");
-  	$("#train-form").animate({backgroundColor: "rgb( 255, 255, 255)"});
+  	$("#input-section").css("background-color", "rgba(188, 121, 116,0.7)");
+  	$("#input-section").animate({backgroundColor: "rgba(255,255,255,0.7)"});
   }
 
   $(document).on("click", ".glyphicon-trash", function () {
@@ -75,7 +78,7 @@ $(document).ready(function () {
 
   $("#add-train").on("click", function(event) {
   	event.preventDefault();
-	var nameInput = $("#name-input").val().trim();
+	  var nameInput = $("#name-input").val().trim();
   	var destinationInput = $("#destination-input").val().trim();
   	var startInput = $("#start-time-input").val().trim();
   	var frequencyInput = convertToMinutes(parseInt($("#frequency-input").val().trim()));
@@ -130,4 +133,8 @@ $(document).ready(function () {
   	console.log("Errors handled: " + err.code);
   });
 
+  for (var i=0; i<initialData.length; i++) {
+    addRow(initialData[i], null);
+  }
+ 
 })
